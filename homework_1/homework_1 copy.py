@@ -46,37 +46,44 @@ def sort_files(folder_path:str, base_path):
     ARCHIVES_FOLDER = f"{base_path}/results/archives/"
     OTHER_FOLDER = f"{base_path}/results/other/"
 
-    path_and_extentions = {
+    path_and_extention = {
         IMAGES_FOLDER: images_type,
         DOCUMENTS_FOLDER: documents_type,
         AUDIO_FOLDER: audio_type,
         VIDEO_FOLDER: video_type,
+        ARCHIVES_FOLDER: archives_type,
     }
+
+    
 
     for file in os.listdir(folder_path):
         source_path = os.path.join(folder_path, file)
         file = normalize(file)
 
-        if not check_and_move_file(file, path_and_extentions, source_path):
-            if file.endswith(archives_type):
-                destination_path = os.path.join(ARCHIVES_FOLDER, file)            
-                shutil.unpack_archive(source_path, destination_path.removesuffix(".zip").removesuffix(".gz").removesuffix(".tar"))
-                os.remove(source_path)
-                
-            elif os.path.isfile(source_path):
-                shutil.move(source_path, OTHER_FOLDER)
-
-            elif os.path.isdir(source_path) and "results" not in source_path:
-                sort_files(source_path, base_path)
-                os.rmdir(source_path)
-
-def check_and_move_file(file, path_and_extentions, source_path):
-    for folder_path, extentions in path_and_extentions.items():
-            if file.endswith(extentions):
+        for folder_path, extention in path_and_extention.items():
+            if file.endswith(extention):
                 destination_path = os.path.join(folder_path, file)
                 shutil.move(source_path, destination_path)
                 return True
-    return False
+            # elif os.path.isfile(source_path):
+            #     shutil.move(source_path, OTHER_FOLDER)
+            # elif os.path.isdir(source_path) and "results" not in source_path:
+            #     sort_files(source_path, base_path)
+            #     os.rmdir(source_path)   
+            
+        #         return True
+            
+        # return False    
+            
+              
+# if os.path.isfile(source_path):
+#         shutil.move(source_path, OTHER_FOLDER)
+
+# elif os.path.isdir(source_path) and "results" not in source_path:
+#     sort_files(source_path, base_path)
+#     os.rmdir(source_path)             
+        
+
 
 
 def unpack_folder(destination_path):
@@ -93,5 +100,7 @@ def unpack_folder(destination_path):
 def main(start_folder_path):
     create_folders(start_folder_path)
     sort_files(start_folder_path, start_folder_path)
-    unpack_folder(start_folder_path)
+    # unpack_folder(start_folder_path)
+
+main("C:/Users/Pavel/Desktop/path_1")
 
