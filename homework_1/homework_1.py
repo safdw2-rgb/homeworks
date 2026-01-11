@@ -95,3 +95,5 @@ def main(start_folder_path):
     sort_files(start_folder_path, start_folder_path)
     unpack_folder(start_folder_path)
 
+if __name__ == "__main__":
+    main() 
