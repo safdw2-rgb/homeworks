@@ -15,9 +15,9 @@ def normalize(path):
     CYRILLIC_SYMBOLS = list(CYRILLIC_SYMBOLS)
     TRANS = {}
         
-    for c, t in zip(CYRILLIC_SYMBOLS, TRANSLATION):
-        TRANS[ord(c)] = t
-        TRANS[ord(c.upper())] = t.upper()
+    for cymbol, translation in zip(CYRILLIC_SYMBOLS, TRANSLATION):
+        TRANS[ord(cymbol)] = translation
+        TRANS[ord(cymbol.upper())] = translation.upper()
 
     translated_name = ""
     
