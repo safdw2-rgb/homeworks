@@ -96,4 +96,4 @@ def main(start_folder_path):
     unpack_folder(start_folder_path)
 
 if __name__ == "__main__":
-    main() 
+    main(input("Укажите путь к папке: ")) 
