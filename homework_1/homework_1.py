@@ -88,12 +88,11 @@ def unpack_folder(destination_path):
 
     os.rmdir(folder_path)    
 
-
-
 def main(start_folder_path):
     create_folders(start_folder_path)
     sort_files(start_folder_path, start_folder_path)
     unpack_folder(start_folder_path)
 
-if __name__ == "__main__":
-    main(input("Укажите путь к папке: ")) 
+def start():
+    folder_path = input("Укажите путь к папке: ")
+    main(folder_path) 

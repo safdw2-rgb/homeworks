@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: clean_folder
+Version: 0.0.1
+Summary: Clean Folder Script
+Author: Pavlo F
+License: MIT
+Dynamic: author
+Dynamic: license
+Dynamic: summary
