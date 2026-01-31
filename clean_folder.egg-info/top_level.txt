@@ -1,0 +1,4 @@
+['archives']
+homework_1
+images
+venv
